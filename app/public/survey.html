@@ -256,7 +256,7 @@
 
 
         var currentURL = window.location.origin;
-
+    
 
 
         // AJAX post the data to the friends API.
@@ -265,6 +265,8 @@
           console.log("friendsUserData posted");
           console.log(userData);
 
+   
+    
         // // Clear the form
         //     $("#name").val(),
         //     $("#photo").val(),
@@ -283,11 +285,17 @@
     
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-          $("#match-name").text(data.name);
-          $("#match-img").attr("src", data.photo);
-          $("#match-img").attr("width","100%");
-          // Show the modal with the best match
+          // $("#match-name").text(bestMatch.name);
+          // $("#match-img").attr("src", bestMatch.photo);
+
+
+
+          // $("#match-name").text(friendsData.name[1]);
+          // $("#match-img").attr("src", friendsData.photo[1]);
+          // $("#match-img").attr("width","100%");
+          // // Show the modal with the best match
           $("#results-modal").modal("toggle");
+          
           resetForm();
 
     });      
