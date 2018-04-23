@@ -22,40 +22,55 @@ app.get("/api/friends", function(req, res) {
      
 
 app.post("/api/friends", function(req, res) {
-    matchingData = [];
-    var userScores = req.body.scores.map(function(num){
-    	return parseInt(num);
+    
+        friendsData.push(req.body);
+        res.json(true);
+
+
+
+
+    // res.json(friendsData);
+    // matchingData = [];
+    // var userScores = req.body.scores.map(function(num){
+    // 	return parseInt(num);
     });
-
-    var valueDiffereneArray = [];
-    var userScores = req.body.scores; 
-
-    for( var i=0;friendsProfiles.length >i;i++){
-        var selectedFriendScores = friendsProfiles[i].scores; 
-        var totalDiff =0;
-        for( var j=0;selectedFriendScores.length >j; j++){
-            totalDiff = totalDiff+ parseInt(Math.abs(userScores[j]-selectedFriendScores[j]));
-        }
-        valueDiffereneArray.push(totalDiff);
-
-    }
-    console.log(valueDiffereneArray);
-    console.log('smallest value -->'+Math.min.apply(Math,valueDiffereneArray));
-
-     var leastDifference = Math.min.apply(Math,valueDiffereneArray);
-     
-     //get the matching friend details 
-     var matchingData = friendsProfiles[valueDiffereneArray.indexOf(leastDifference)];
 
     
 
 
-data = matchingData
 
-res.json(data);
 
-console.log("Data from apiRoutes is:" + data);
 
-});
+
+
+//     var valueDiffereneArray = [];
+//     var userScores = req.body.scores; 
+
+//     for( var i=0;friendsProfiles.length >i;i++){
+//         var selectedFriendScores = friendsProfiles[i].scores; 
+//         var totalDiff =0;
+//         for( var j=0;selectedFriendScores.length >j; j++){
+//             totalDiff = totalDiff+ parseInt(Math.abs(userScores[j]-selectedFriendScores[j]));
+//         }
+//         valueDiffereneArray.push(totalDiff);
+
+//     }
+//     console.log(valueDiffereneArray);
+//     console.log('smallest value -->'+Math.min.apply(Math,valueDiffereneArray));
+
+//      var leastDifference = Math.min.apply(Math,valueDiffereneArray);
+     
+//      //get the matching friend details 
+//      var matchingData = friendsProfiles[valueDiffereneArray.indexOf(leastDifference)];
+
+    
+
+
+// data = matchingData
+
+// res.json(data);
+
+// console.log("Data from apiRoutes is:" + data);
+
 
 };
